@@ -20,3 +20,9 @@
 "Is this what the people of Bel-Air living like? Hmmm, this might be all right."
 "Will Smith is my hero"
 -------------------------------------------------------
+***You Searched***
+Artist: Backstreet Boys
+Song Name: I Want It That Way
+Song Preview: https://api.spotify.com/v1/tracks/6e40mgJiCid5HRAGrbpGA6
+Album Name: The Hits--Chapter One
+-------------------------------------------------------

@@ -14,7 +14,7 @@ for (var i = 4; i < process.argv.length; i++) {
 
 function liriTwitter() {
     client.get('search/tweets', { q: 'BobLobl03697538', count: "20" }, function (error, tweets) {
-        if (error){
+        if (error) {
             console.log(error)
         }
         fs.appendFile("log.txt", "***The Last Twenty Tweets***\n", function (err) {
@@ -213,7 +213,6 @@ if (search === "do-what-it-says") {
         var dataArr = data.split(",");
         search = dataArr[0]
         liriSearch = dataArr[1]
-        console.log(liriSearch)
         runLiri();
 
     });
