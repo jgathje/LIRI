@@ -125,6 +125,7 @@ function liriMovie() {
                     "The movie's rating is: " + JSON.parse(body).imdbRating +
                     "\n" +
                     "Rotten Tomatoes rating: " + JSON.parse(body).Ratings[1].Value +
+                    "\n" +
                     "Country that unleashed this hellstorm on the world: " + JSON.parse(body).Country +
                     "\n" +
                     "Language: " + JSON.parse(body).Language +
@@ -165,6 +166,7 @@ function liriMovie() {
                 "The movie's rating is: " + JSON.parse(body).imdbRating +
                 "\n" +
                 "Rotten Tomatoes rating: " + JSON.parse(body).Ratings[1].Value +
+                "\n" +
                 "Country that unleashed this hellstorm on the world: " + JSON.parse(body).Country +
                 "\n" +
                 "Language: " + JSON.parse(body).Language +
