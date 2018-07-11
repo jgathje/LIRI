@@ -14,6 +14,9 @@ for (var i = 4; i < process.argv.length; i++) {
 console.log(process.argv[3])
 function liriTwitter() {
     client.get('search/tweets', { q: 'BobLobl03697538', count: "20" }, function (error, tweets) {
+        if (error){
+            console.log(error)
+        }
         fs.appendFile("log.txt", "***The Last Twenty Tweets***\n", function (err) {
             if (err) {
                 console.log(err)
