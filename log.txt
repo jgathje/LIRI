@@ -26,3 +26,19 @@ Song Name: I Want It That Way
 Song Preview: https://api.spotify.com/v1/tracks/6e40mgJiCid5HRAGrbpGA6
 Album Name: The Hits--Chapter One
 -------------------------------------------------------
+***You Searched***
+Title: Mr. Nobody
+Year: 2009
+The movie's rating is: 7.9
+Rotten Tomatoes rating: 66%
+Country that unleashed this hellstorm on the world: Belgium, Germany, Canada, France, USA, UK
+Language: English, Mohawk
+Plot summary: A boy stands on a station platform as a train is about to leave. Should he go with his mother or stay with his father? Infinite possibilities arise from this decision. As long as he doesn't choose, anything is possible.
+Staring: Jared Leto, Sarah Polley, Diane Kruger, Linh Dan Pham
+-------------------------------------------------------
+***You Searched***
+Artist: The Velvet Underground
+Song Name: Oh! Sweet Nuthin' - 2015 Remastered
+Song Preview: https://api.spotify.com/v1/tracks/0i19MAZbyn8uTir7FprXId
+Album Name: Loaded: Re-Loaded 45th Anniversary Edition
+-------------------------------------------------------

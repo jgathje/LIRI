@@ -93,9 +93,6 @@ function liriSpotify() {
                 if (err) {
                     console.log(err);
                 }
-                else {
-                    console.log("Content Added!");
-                }
             });
     });
 }
@@ -179,9 +176,6 @@ function liriMovie() {
                     if (err) {
                         console.log(err);
                     }
-                    else {
-                        console.log("Content Added!");
-                    }
                 });
         }
     });
@@ -191,31 +185,23 @@ function runLiri() {
     if (search === "my-tweets") {
         liriTwitter();
     }
-
     else if (search === "spotify-this-song") {
         liriSpotify();
     }
-
     else if (search === "movie-this") {
         liriMovie();
     }
 }
 
 if (search === "do-what-it-says") {
-
-
     fs.readFile("random.txt", "utf8", function (error, data) {
-
         if (error) {
             return console.log(error);
         }
-
         var dataArr = data.split(",");
         search = dataArr[0]
         liriSearch = dataArr[1]
         runLiri();
-
     });
 }
-
 else runLiri();
