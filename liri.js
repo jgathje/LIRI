@@ -11,7 +11,7 @@ var liriSearch = process.argv[3];
 for (var i = 4; i < process.argv.length; i++) {
     liriSearch = liriSearch + " " + process.argv[i]
 }
-console.log(process.argv[3])
+
 function liriTwitter() {
     client.get('search/tweets', { q: 'BobLobl03697538', count: "20" }, function (error, tweets) {
         if (error){
