@@ -199,9 +199,14 @@ if (search === "do-what-it-says") {
             return console.log(error);
         }
         var dataArr = data.split(",");
-        search = dataArr[0]
-        liriSearch = dataArr[1]
-        runLiri();
+        if (dataArr[0] === "do-what-it-says") {
+            console.log("I'm sorry, Dave. I'm afraid I can't do that.")
+        }
+        else {
+            search = dataArr[0]
+            liriSearch = dataArr[1]
+            runLiri();
+        }
     });
 }
 else runLiri();
