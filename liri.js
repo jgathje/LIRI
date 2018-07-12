@@ -57,7 +57,7 @@ function liriSpotify() {
                 "\n" +
                 "Song Name: " + data.tracks.items[0].name +
                 "\n" +
-                "Song Preview: " + data.tracks.items[0].href +
+                "Song Preview: " + data.tracks.items[0].external_urls.spotify +
                 "\n" +
                 "Album Name: " + data.tracks.items[0].album.name +
                 "\n" + "-------------------------------------------------------" + "\n"
@@ -85,7 +85,7 @@ function liriSpotify() {
             "\n" +
             "Song Name: " + data.tracks.items[0].name +
             "\n" +
-            "Song Preview: " + data.tracks.items[0].href +
+            "Song Preview: " + data.tracks.items[0].external_urls.spotify +
             "\n" +
             "Album Name: " + data.tracks.items[0].album.name +
             "\n" + "-------------------------------------------------------" + "\n"
