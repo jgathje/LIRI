@@ -12,6 +12,22 @@ for (var i = 4; i < process.argv.length; i++) {
     liriSearch = liriSearch + " " + process.argv[i]
 }
 
+function appendSpot(info) {
+    fs.appendFile("log.txt", info, function (err) {
+        if (err) {
+            console.log(err);
+        }
+    });
+}
+
+function appendOMDB(info) {
+    fs.appendFile("log.txt", info, function (err) {
+        if (err) {
+            console.log(err)
+        }
+    })
+}
+
 function liriTwitter() {
     client.get('search/tweets', { q: 'BobLobl03697538', count: "20" }, function (error, tweets) {
         if (error) {
@@ -30,7 +46,6 @@ function liriTwitter() {
                     if (err) {
                         console.log(err);
                     }
-
                 });
         }
         fs.appendFile("log.txt", "-------------------------------------------------------" + "\n", function (err) {
@@ -47,12 +62,7 @@ function liriSpotify() {
             if (err) {
                 return console.log('Error occurred: ' + err);
             }
-            console.log(JSON.stringify("Artist: " + data.tracks.items[0].artists[0].name, null, 2));
-            console.log(JSON.stringify("Song name: " + data.tracks.items[0].name, null, 2));
-            console.log(JSON.stringify("Song preview: " + data.tracks.items[0].external_urls.spotify, null, 2));
-            console.log(JSON.stringify("Album name: " + data.tracks.items[0].album.name, null, 2));
-            fs.appendFile("log.txt", "***You Searched***" +
-                "\n" +
+            var songData = "***You Searched***" + "\n" +
                 "Artist: " + data.tracks.items[0].artists[0].name +
                 "\n" +
                 "Song Name: " + data.tracks.items[0].name +
@@ -61,26 +71,15 @@ function liriSpotify() {
                 "\n" +
                 "Album Name: " + data.tracks.items[0].album.name +
                 "\n" + "-------------------------------------------------------" + "\n"
-                , function (err) {
-                    if (err) {
-                        console.log(err);
-                    }
-                    else {
-                        console.log("Content Added!");
-                    }
-                });
+            console.log(songData);
+            appendSpot(songData);
         });
     }
     else spotify.search({ type: 'track', query: liriSearch, limit: "1" }, function (err, data) {
         if (err) {
             return console.log('Error occurred: ' + err);
         }
-        console.log(JSON.stringify("Artist: " + data.tracks.items[0].artists[0].name, null, 2));
-        console.log(JSON.stringify("Song name: " + data.tracks.items[0].name, null, 2));
-        console.log(JSON.stringify("Song preview: " + data.tracks.items[0].external_urls.spotify));
-        console.log(JSON.stringify("Album name: " + data.tracks.items[0].album.name, null, 2));
-        fs.appendFile("log.txt", "***You Searched***" +
-            "\n" +
+        var songData = "***You Searched***" + "\n" +
             "Artist: " + data.tracks.items[0].artists[0].name +
             "\n" +
             "Song Name: " + data.tracks.items[0].name +
@@ -89,11 +88,8 @@ function liriSpotify() {
             "\n" +
             "Album Name: " + data.tracks.items[0].album.name +
             "\n" + "-------------------------------------------------------" + "\n"
-            , function (err) {
-                if (err) {
-                    console.log(err);
-                }
-            });
+        console.log(songData);
+        appendSpot(songData);
     });
 }
 
@@ -103,17 +99,8 @@ function liriMovie() {
         let movie = "Mr. Nobody"
         console.log(movie)
         request("http://www.omdbapi.com/?t=" + movie + "&y=&plot=short&apikey=trilogy", function (error, response, body) {
-
             if (!error && response.statusCode === 200) {
-                console.log("Title: " + JSON.parse(body).Title);
-                console.log("Year: " + JSON.parse(body).Year);
-                console.log("The movie's rating is: " + JSON.parse(body).imdbRating);
-                console.log("Rotten Tomatoes rating: " + JSON.parse(body).Ratings[1].Value);
-                console.log("Country that unleashed this hellstorm on the world: " + JSON.parse(body).Country);
-                console.log("Language: " + JSON.parse(body).Language);
-                console.log("Plot summary: " + JSON.parse(body).Plot);
-                console.log("Staring: " + JSON.parse(body).Actors)
-                fs.appendFile("log.txt", "***You Searched***" +
+                var movieData = "***You Searched***" +
                     "\n" +
                     "Title: " + JSON.parse(body).Title +
                     "\n" +
@@ -131,30 +118,14 @@ function liriMovie() {
                     "\n" +
                     "Staring: " + JSON.parse(body).Actors +
                     "\n" + "-------------------------------------------------------" + "\n"
-                    , function (err) {
-                        if (err) {
-                            console.log(err);
-                        }
-                        else {
-                            console.log("Content Added!");
-                        }
-                    });
+                console.log(movieData);
+                appendOMDB(movieData);
             }
         });
-
     }
     else request("http://www.omdbapi.com/?t=" + liriSearch + "&y=&plot=short&apikey=trilogy", function (error, response, body) {
-
         if (!error && response.statusCode === 200) {
-            console.log("Title: " + JSON.parse(body).Title);
-            console.log("Year: " + JSON.parse(body).Year);
-            console.log("The movie's rating is: " + JSON.parse(body).imdbRating);
-            console.log("Rotten Tomatoes rating: " + JSON.parse(body).Ratings[1].Value);
-            console.log("Country that unleashed this hellstorm on the world: " + JSON.parse(body).Country);
-            console.log("Language: " + JSON.parse(body).Language);
-            console.log("Plot summary: " + JSON.parse(body).Plot);
-            console.log("Staring: " + JSON.parse(body).Actors)
-            fs.appendFile("log.txt", "***You Searched***" +
+            var movieData = "***You Searched***" +
                 "\n" +
                 "Title: " + JSON.parse(body).Title +
                 "\n" +
@@ -172,11 +143,8 @@ function liriMovie() {
                 "\n" +
                 "Staring: " + JSON.parse(body).Actors +
                 "\n" + "-------------------------------------------------------" + "\n"
-                , function (err) {
-                    if (err) {
-                        console.log(err);
-                    }
-                });
+            console.log(movieData);
+            appendOMDB(movieData);
         }
     });
 }
