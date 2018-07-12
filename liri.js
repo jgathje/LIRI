@@ -49,7 +49,7 @@ function liriSpotify() {
             }
             console.log(JSON.stringify("Artist: " + data.tracks.items[0].artists[0].name, null, 2));
             console.log(JSON.stringify("Song name: " + data.tracks.items[0].name, null, 2));
-            console.log(JSON.stringify("Song preview: " + data.tracks.items[0].href, null, 2));
+            console.log(JSON.stringify("Song preview: " + data.tracks.items[0].external_urls.spotify, null, 2));
             console.log(JSON.stringify("Album name: " + data.tracks.items[0].album.name, null, 2));
             fs.appendFile("log.txt", "***You Searched***" +
                 "\n" +
@@ -77,7 +77,7 @@ function liriSpotify() {
         }
         console.log(JSON.stringify("Artist: " + data.tracks.items[0].artists[0].name, null, 2));
         console.log(JSON.stringify("Song name: " + data.tracks.items[0].name, null, 2));
-        console.log(JSON.stringify("Song preview: " + data.tracks.items[0].href, null, 2));
+        console.log(JSON.stringify("Song preview: " + data.tracks.items[0].external_urls.spotify));
         console.log(JSON.stringify("Album name: " + data.tracks.items[0].album.name, null, 2));
         fs.appendFile("log.txt", "***You Searched***" +
             "\n" +
